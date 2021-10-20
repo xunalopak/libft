@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isblank.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 18:04:16 by rchampli          #+#    #+#             */
-/*   Updated: 2021/10/14 18:04:16 by rchampli         ###   ########.fr       */
+/*   Created: 2021/10/20 15:00:45 by rchampli          #+#    #+#             */
+/*   Updated: 2021/10/20 15:00:45 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isblank(int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	return (c == 32 || c == 9);
+	int		i;
+	char	*rpt;
+
+	i = 0;
+	rpt = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			rpt = (char *)s + i;
+		i++;
+	}
+	return (rpt);
 }

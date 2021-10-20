@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isblank.c                                       :+:      :+:    :+:   */
+/*   ft_ispunct.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rchampli <rchampli@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 18:04:16 by rchampli          #+#    #+#             */
-/*   Updated: 2021/10/14 18:04:16 by rchampli         ###   ########.fr       */
+/*   Created: 2021/10/14 19:45:38 by rchampli          #+#    #+#             */
+/*   Updated: 2021/10/14 19:45:38 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isblank(int c)
+int	ft_ispunct(int c)
 {
-	return (c == 32 || c == 9);
+	return (ft_isascii(c) == 1 && ft_isgraph(c) == 1 && ft_isalnum(c) == 0);
 }
