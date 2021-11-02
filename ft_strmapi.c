@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 11:37:04 by rchampli          #+#    #+#             */
-/*   Updated: 2021/11/02 12:42:00 by rchampli         ###   ########.fr       */
+/*   Created: 2021/11/02 14:14:11 by rchampli          #+#    #+#             */
+/*   Updated: 2021/11/02 14:40:55 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
-	size_t	j;
-	char	*dest;
+	unsigned int	i;
+	unsigned char	*dest;
 
 	i = 0;
-	dest = malloc(sizeof(char) * ft_strlen(s1) + 1);
+	dest = (char)malloc(sizeof(char) * ft_strlen(s));
 	if (!dest)
-	{
 		return (0);
-	}
-	while (s1[i])
+	while (s[i])
 	{
-		j = 0;
-		while (set[j])
-		{
-			if (s1[i] == set[j])
-				i++;
-			j++;
-		}
-		dest[i] = s1[i];
+		(*f)(i, s[i]);
 		i++;
 	}
-	dest[i] = '\0';
 	return (dest);
 }

@@ -1,41 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 11:37:04 by rchampli          #+#    #+#             */
-/*   Updated: 2021/11/02 12:42:00 by rchampli         ###   ########.fr       */
+/*   Created: 2021/11/02 14:56:45 by rchampli          #+#    #+#             */
+/*   Updated: 2021/11/02 15:00:23 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	i;
-	size_t	j;
-	char	*dest;
-
-	i = 0;
-	dest = malloc(sizeof(char) * ft_strlen(s1) + 1);
-	if (!dest)
-	{
-		return (0);
-	}
-	while (s1[i])
-	{
-		j = 0;
-		while (set[j])
-		{
-			if (s1[i] == set[j])
-				i++;
-			j++;
-		}
-		dest[i] = s1[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
