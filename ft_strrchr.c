@@ -14,8 +14,8 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
-	char	*rpt;
+	size_t			i;
+	unsigned char	*rpt;
 
 	i = 0;
 	rpt = 0;

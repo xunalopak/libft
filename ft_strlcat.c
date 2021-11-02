@@ -14,14 +14,14 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t			i;
-	unsigned int	lendest;
+	size_t	i;
+	size_t	lendest;
 
 	i = 0;
 	lendest = ft_strlen(dest);
 	if (!src)
 		return (0);
-	while (s[i] && i < size - 1)
+	while (src[i] && i < size - 1)
 	{
 		dest[lendest + i] = src[i];
 		i++;
