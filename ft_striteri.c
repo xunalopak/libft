@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:28:57 by rchampli          #+#    #+#             */
-/*   Updated: 2021/11/03 12:55:48 by rchampli         ###   ########.fr       */
+/*   Updated: 2021/11/03 15:25:00 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	{
 		while (s[i])
 		{
-			(*f)(i, s);
+			(*f)(i, s + i);
 			i++;
 		}
 	}

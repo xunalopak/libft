@@ -6,55 +6,51 @@
 /*   By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 12:35:02 by rchampli          #+#    #+#             */
-/*   Updated: 2021/11/02 14:09:27 by rchampli         ###   ########.fr       */
+/*   Updated: 2021/11/03 16:09:54 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_numlen(int n)
+size_t	ft_nb_len(int nb)
 {
-	size_t	i;
+	int	len;
 
-	i = 0;
-	if (n < 0)
+	len = 0;
+	if (nb <= 0)
+		len++;
+	while (nb)
 	{
-		n = n * -1;
-		i++;
+		len++;
+		nb = nb / 10;
 	}
-	while (n > 0)
-	{
-		n = n / 10;
-		i++;
-	}
-	return (i);
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*dest;
-	size_t	i ;
+	int		len;
+	char	*str;
+	long	nb;
 
-	i = ft_numlen(n);
-	dest = (char *)malloc(sizeof(char) * (i + 1));
-	if (!dest)
-		return (0);
-	dest[i--] = '\0';
-	if (n == 0)
+	len = ft_nb_len(n);
+	nb = n;
+	str = malloc(sizeof(char) * len + 1);
+	if (!str)
+		return (NULL);
+	if (nb < 0)
 	{
-		dest[0] = 48;
-		return (dest);
+		str[0] = '-';
+		nb = -nb;
 	}
-	if (n < 0)
+	if (nb == 0)
+		str[0] = '0';
+	str[len--] = '\0';
+	while (nb)
 	{
-		dest[0] = '-';
-		n = n * -1;
+		str[len] = nb % 10 + '0';
+		len--;
+		nb = nb / 10;
 	}
-	while (n > 0)
-	{
-		dest[i] = 48 + (n % 10);
-		n = n / 10;
-		i--;
-	}
-	return (dest);
+	return (str);
 }
