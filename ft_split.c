@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 12:16:51 by rchampli          #+#    #+#             */
-/*   Updated: 2021/11/02 12:34:14 by rchampli         ###   ########.fr       */
+/*   Updated: 2021/11/03 12:51:34 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,30 +75,30 @@ int	ft_word_count(char *str, char *charset)
 	return (wc);
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_split(char const *s, char c)
 {
 	char	**strs;
 	int		it;
 	int		wc;
 	int		ln;
 
-	if (ft_is_charset(*str, charset))
-		str = ft_next_word(str, charset);
-	wc = ft_word_count(str, charset);
+	if (ft_is_charset(*s, &c))
+		s = ft_next_word((char *)s, &c);
+	wc = ft_word_count((char *)s, &c);
 	strs = (char **) malloc(sizeof(char *) * (wc + 1));
 	if (!strs)
 		return (0);
 	it = 0;
-	while (str && it < wc)
+	while (s && it < wc)
 	{
 		ln = 0;
-		while (str[ln] && !ft_is_charset(str[ln], charset))
+		while (s[ln] && !ft_is_charset(s[ln], &c))
 			ln++;
 		strs[it] = (char *) malloc(sizeof(char) * (ln + 1));
 		if (!strs[it])
 			return (0);
-		ft_strncpy(strs[it++], str, ln);
-		str = ft_next_word(str, charset);
+		ft_strncpy(strs[it++], s, ln);
+		s = ft_next_word((char *)s, &c);
 	}
 	strs[wc] = 0;
 	return (strs);
