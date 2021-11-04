@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 12:16:51 by rchampli          #+#    #+#             */
-/*   Updated: 2021/11/03 17:24:27 by rchampli         ###   ########.fr       */
+/*   Updated: 2021/11/04 15:59:37 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	**ft_split(char const *s, char c)
 	if (ft_is_charset(*s, &c))
 		s = ft_next_word((char *)s, &c);
 	wc = ft_word_count((char *)s, &c);
-	strs = calloc((wc + 1), sizeof(char *));
+	strs = ft_calloc((wc + 1), sizeof(char *));
 	if (!strs)
 		return (0);
 	it = 0;
@@ -94,7 +94,7 @@ char	**ft_split(char const *s, char c)
 		ln = 0;
 		while (s[ln] && !ft_is_charset(s[ln], &c))
 			ln++;
-		strs[it] = calloc((ln + 1), sizeof(char));
+		strs[it] = ft_calloc((ln + 1), sizeof(char));
 		if (!strs[it])
 			return (0);
 		ft_strncpy(strs[it++], s, ln);

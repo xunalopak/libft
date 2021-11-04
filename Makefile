@@ -6,7 +6,7 @@
 #    By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 15:54:47 by rchampli          #+#    #+#              #
-#    Updated: 2021/11/04 11:17:07 by rchampli         ###   ########.fr        #
+#    Updated: 2021/11/04 16:02:16 by rchampli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,4 +89,4 @@ fclean: clean
 
 re: clean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

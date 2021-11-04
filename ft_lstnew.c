@@ -6,7 +6,7 @@
 /*   By: rchampli <rchampli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 09:27:34 by rchampli          #+#    #+#             */
-/*   Updated: 2021/11/04 11:52:14 by rchampli         ###   ########.fr       */
+/*   Updated: 2021/11/04 15:59:18 by rchampli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*new;
 
-	new = (t_list *)calloc(1, sizeof(t_list));
+	new = (t_list *)ft_calloc(1, sizeof(t_list));
 	if (!new)
 		return (0);
 	new->next = 0;
